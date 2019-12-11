@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.graphql-java.tutorial'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.graphql-java:graphql-java:11.0' // NEW
+	implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0' // NEW
+	implementation 'com.google.guava:guava:26.0-jre' // NEW
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.baomidou:mybatis-plus-boot-starter:3.3.0'
+	implementation 'mysql:mysql-connector-java'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	compileOnly 'org.projectlombok:lombok:1.18.4'
+	annotationProcessor 'org.projectlombok:lombok:1.18.4'
+	testCompileOnly 'org.projectlombok:lombok:1.18.4'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+}
+
+test {
+	useJUnitPlatform()
+}
